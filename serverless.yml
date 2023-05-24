@@ -1,0 +1,20 @@
+service: space-text-node
+frameworkVersion: '3'
+
+provider:
+  name: aws
+  runtime: nodejs18.x
+
+functions:
+  function1:
+    handler: index.handler
+    events: 
+      - schedule: cron(0 7 * * ? *)
+    environment: 
+      NASA_API_KEY: WkjxCgbncVpPHplzQJAmYu6E9Y3VdcF57eR86SRJ
+      TWILIO_ACCOUNT_SID: AC424a2b6f2d614f51fcb87f21f07e3c0e
+      TWILIO_AUTH_TOKEN: b700774798e157173137b054c2e19b65
+      TWILIO_PHONE_NUMBER: +18667573365
+      MY_PHONE_NUMBER: +13129279457
+      
+
