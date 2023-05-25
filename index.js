@@ -29,14 +29,6 @@ module.exports.handler = async (event) => {
   const authToken=process.env.TWILIO_AUTH_TOKEN;
   const client = require("twilio")(accountSid, authToken)
 
-  client.messages.create({
-    to: process.env.MY_PHONE_NUMBER,
-    from: process.env.TWILIO_PHONE_NUMBER,
-    body: "There Is Nothing Wrong With A Life Of Peace And Prosperity. I Suggest You Think About What It Is You Want From Your Life."
-})
-.then((message)=>console.log('Message SID: ' + message.sid))
-
-
   await client.messages.create({
     body,
     mediaUrl: [imageData.url],
